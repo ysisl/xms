@@ -1,0 +1,19 @@
+
+<ons-pag id="loginpage" ng-controller="loginController">
+      <ons-toolbar>
+        <div class="center">登录</div>
+       
+      </ons-toolbar>
+    <div><img src=""></div>
+      <div class="login-form">
+
+          <input type="email" ng-model="username" class="text-input--underbar" placeholder="手机号" value="">
+          <input type="password"  ng-model="password" class="text-input--underbar" placeholder="密码" value="">
+        <br><br>
+        <ons-button modifier="large" class="login-button" ng-click="login()">登录</ons-button>
+        <br><br>
+        <ons-button modifier="quiet" class="forgot-password">忘记密码?</ons-button>
+      </div>
+
+    </ons-page>
+
