@@ -6,14 +6,21 @@
  */
 
 
-demo.controller('ContactController',function ($rootScope,$scope,SettingsService) {
+demo.controller('ContactController',function ($rootScope,$scope,DataService,SettingsService) {
     
+    
+
     $scope.person = SettingsService.get("person");
+    
+    // 绑定URL
+    var _url = "/rest/user/all?page=1&start=0&limit=50";
+    DataService.getData(_url).then(function(data){
+        $scope.items = data["result"];
+        
+    });
    
-    $scope.reportpath = SettingsService.get("person").desc;
     $scope.showDetail = function(targetPage,item){
         SettingsService.set("person",item);
-
         $scope.myNavigator.pushPage(targetPage);
        
     };

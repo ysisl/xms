@@ -7,27 +7,6 @@ var demo = angular.module('demo', [
 
 var params= new Object();
 
-
-demo.factory('dataService', function ($http) {
-    
-    dataService ={
-        getData : function(){
-        var requestURL= "http://portal.sogal.net:8083/api/rest/error/all?_dc=1427779575941&page=1&start=0&limit=10&filtersRaw=[{%22id%22%3Anull%2C%22property%22%3A%22code%22%2C%22value%22%3A%22BIDemoHost%22%2C%22operator%22%3A%22%22%2C%22sql%22%3Anull}]";
-        
-        $http.get(requestURL).then(function (response) {
-               
-            
-            clientDataObject = response;
-            params.host = clientDataObject.result[0].exception;
-            params.url = clientDataObject.result[0].msg;
-            return params;
-        });
-    }};
-
-    return dataService;
-        
-});
-
 demo.config(['$routeProvider', '$sceDelegateProvider',function ($routeProvider,$sceDelegateProvider) {
         $routeProvider
                 .when('/', {
@@ -39,31 +18,7 @@ demo.config(['$routeProvider', '$sceDelegateProvider',function ($routeProvider,$
                     controller: 'loginController'
                 });
        
-        $sceDelegateProvider.resourceUrlWhitelist([
-       // Allow same origin resource loads.
-       'self',
-       // Allow loading from our assets domain.  Notice the difference between * and **.
-       'http://172.36.33.65:9988/**']);
-        
-        /*
-        var requestURL= "http://portal.sogal.net:8083/api/rest/error/all?_dc=1427779575941&page=1&start=0&limit=10&filtersRaw=[{%22id%22%3Anull%2C%22property%22%3A%22code%22%2C%22value%22%3A%22BIDemoHost%22%2C%22operator%22%3A%22%22%2C%22sql%22%3Anull}]";
-        
-        $http.get(requestURL).then(function (response) {
-               
-            
-            clientDataObject = response;
-            params.host = clientDataObject.result[0].exception;
-            params.url = clientDataObject.result[0].msg;
-        
-        
-            $sceDelegateProvider.resourceUrlWhitelist([
-           // Allow same origin resource loads.
-           'self',
-           // Allow loading from our assets domain.  Notice the difference between * and **.
-           params.host]);   
-        });
-        */
-       
+     
     }]);
 
 // Shared data from settings needed by different controllers
