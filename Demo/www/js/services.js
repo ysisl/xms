@@ -40,9 +40,11 @@ demo.factory('DataService', function ($http,$q) {
         
         getData: function (_url) {
             var requestURL= rootConfig.reqHost + _url;
+            console.log('DEBUG - Request URL: '+ requestURL);
             var deferred = $q.defer();
             $http.get(requestURL).success(function (data, status, headers, config) {
                 deferred.resolve(data);
+                console.log('DEBUG - server return : ' + angular.toJson(data));
             }).error(function (resp) {
     
                 deferred.reject(resp);

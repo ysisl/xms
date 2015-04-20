@@ -2,7 +2,8 @@
 
 // Declare app level module which depends on views, and components
 var demo = angular.module('demo', [
-    'ngRoute', 'onsen'
+    'ngRoute', 'onsen',
+    'onsen.directives'
 ]);
 
 

@@ -8,8 +8,7 @@
 
 demo.controller('ContactController',function ($rootScope,$scope,DataService,SettingsService) {
     
-    
-
+    $scope.smallImg = "http://p3.wmpic.me/article/2015/04/02/1427939279_arAQzhqP.jpeg";
     $scope.person = SettingsService.get("person");
     
     // 绑定URL
@@ -21,7 +20,7 @@ demo.controller('ContactController',function ($rootScope,$scope,DataService,Sett
    
     $scope.showDetail = function(targetPage,item){
         SettingsService.set("person",item);
-        $scope.myNavigator.pushPage(targetPage);
+        $scope.nav.pushPage(targetPage);
        
     };
     
@@ -54,5 +53,13 @@ demo.controller('ContactController',function ($rootScope,$scope,DataService,Sett
         }
     ];
     
+    
+    ons.createPopover('popover.html').then(function(popover) {
+            $scope.popover = popover;
+          });
+    
+    $scope.showpop = function(e){
+        $scope.popover.show(e);
+    }
     
 });

@@ -20,8 +20,8 @@ demo.controller('loginController', function ($scope) {
     
     
     $scope.login = function () {
-        
-      $scope.myNavigator.pushPage('html/main.html', {animation: "fade"});
+      console.log($scope.nav);
+      $scope.nav.pushPage('myMainPage', {animation: "fade"});
         
         
     };

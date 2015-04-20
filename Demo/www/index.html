@@ -9,7 +9,7 @@
 
         <link href="lib/onsen/css/onsen-css-components-blue-theme.css" rel="stylesheet" type="text/css"/>
         <link href="lib/onsen/css/onsenui.css" rel="stylesheet" type="text/css"/>
-        <link href="lib/onsen/css/app.css" rel="stylesheet" type="text/css"/>
+        <link href="style/app.css" rel="stylesheet" type="text/css"/>
 
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
@@ -22,69 +22,42 @@
         <script src="js/menu.js" type="text/javascript"></script>
         <script src="js/webbrowser.js" type="text/javascript"></script>
         <script src="js/report.js" type="text/javascript"></script>
+        <script src="js/main.js" type="text/javascript"></script>
+        
         
     </head>
     <body >
 
-  <ons-navigator var="myNavigator" page="login.html">    
-    
-    </ons-navigator>
+  <ons-navigator var="nav">    
 
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        <!--登陆界面开始-->
+        <div>
+            <div ng-view></div>
+        </div>
+        <!--我的首页开始-->
+        
+
+
+      
     
-   
+   <ons-template id="myMainPage">
+       <ons-page   ng-controller="MainController">
+
+        <ons-tabbar>
+            <ons-tab page="html/contact.html" label="联系人" icon="ion-home" active="true"></ons-tab>
+            <ons-tab page="html/view2.html" label="商机" icon="ion-chatbox-working"></ons-tab>
+            <ons-tab page="html/login.html" label="社区" icon="facebook"></ons-tab>
+            <ons-tab page="html/web.html" label="报表" icon="github"></ons-tab>
+        </ons-tabbar>
+    </ons-page>
+
+</ons-template>
+
  
     <!-- In production use:
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
     -->
-<ons-template id="menu.html">
-    <ons-page modifier="menu-page" ng-controller="MenuController">
-        <ons-toolbar modifier="transparent">
-            <div class="right">
-                <ons-toolbar-button class="menu-close" ng-click="menu.close()">
-                    <ons-icon icon="ion-close" ></ons-icon> 
-                </ons-toolbar-button>
-            </div>
-        </ons-toolbar>
-
-        <ons-list class="menu-list">
-            <ons-list-item class="menu-item" ng-click="menu.close()">
-                <ons-icon icon="fa-plus"></ons-icon>
-                New Post
-            </ons-list-item>
-
-            <ons-list-item class="menu-item" ng-click="menu.close()">
-                <ons-icon icon="fa-bookmark"></ons-icon>
-                Bookmark
-            </ons-list-item>
-
-            <ons-list-item class="menu-item" ng-click="menu.close()">
-                <ons-icon icon="fa-twitter"></ons-icon>
-                Official Twitter
-            </ons-list-item>
-        </ons-list>
-
-        <br>
-
-        <ons-list class="bottom-menu-list">
-            <ons-list-item class="bottom-menu-item" ng-click="gotoReport()">
-                报表
-                <div class="notification menu-notification">3</div>
-            </ons-list-item>
-
-            <ons-list-item class="bottom-menu-item" ng-click="reportSetting()">
-                报表路径设置
-            </ons-list-item>
-
-            <ons-list-item class="bottom-menu-item" ng-click="logout()">
-                退出登录
-            </ons-list-item>
-        </ons-list>
-
-    </ons-page>
-</ons-template>
+    </ons-navigator>
 
 </body>
 </html>

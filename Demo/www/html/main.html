@@ -1,10 +1,10 @@
 
-<ons-page id="home">
+<ons-page id="mainPage" >
     
-<ons-sliding-menu main-page="home.html" menu-page="menu.html" max-slide-distance="260px" type="push" var="menu">
-</ons-sliding-menu> 
+<!--<ons-sliding-menu main-page="home.html" menu-page="menu.html" max-slide-distance="260px" type="push" var="menu">
+</ons-sliding-menu> -->
 
-<ons-template id="home.html">
+<!--<ons-template id="home.html">
     <ons-page>
 
         <ons-tabbar>
@@ -17,6 +17,51 @@
 
 </ons-template>
 
+<ons-template id="menu.html">
+    <ons-page modifier="menu-page" ng-controller="MenuController">
+        <ons-toolbar modifier="transparent">
+            <div class="right">
+                <ons-toolbar-button class="menu-close" ng-click="menu.close()">
+                    <ons-icon icon="ion-close" ></ons-icon> 
+                </ons-toolbar-button>
+            </div>
+        </ons-toolbar>
 
+        <ons-list class="menu-list">
+            <ons-list-item class="menu-item" ng-click="menu.close()">
+                <ons-icon icon="fa-plus"></ons-icon>
+                New Post
+            </ons-list-item>
+
+            <ons-list-item class="menu-item" ng-click="menu.close()">
+                <ons-icon icon="fa-bookmark"></ons-icon>
+                Bookmark
+            </ons-list-item>
+
+            <ons-list-item class="menu-item" ng-click="menu.close()">
+                <ons-icon icon="fa-twitter"></ons-icon>
+                Official Twitter
+            </ons-list-item>
+        </ons-list>
+
+        <br>
+
+        <ons-list class="bottom-menu-list">
+            <ons-list-item class="bottom-menu-item" ng-click="gotoReport()">
+                报表
+                <div class="notification menu-notification">3</div>
+            </ons-list-item>
+
+            <ons-list-item class="bottom-menu-item" ng-click="reportSetting()">
+                报表路径设置
+            </ons-list-item>
+
+            <ons-list-item class="bottom-menu-item" ng-click="logout()">
+                退出登录
+            </ons-list-item>
+        </ons-list>
+
+    </ons-page>
+</ons-template>-->
 
 </ons-page>
